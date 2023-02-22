@@ -22,14 +22,14 @@ ARG configuration=production
 # Build the application
 RUN npm run build -- --output-path=./dist/out --configuration $configuration
 
-#### Stage 2, use the compiled app, ready for production with Nginx
-FROM nginx
-
-# Copy the angular build from Stage 1
-COPY --from=build /app/dist/out/ /usr/share/nginx/html
-
-# Copy our custom nginx config
-COPY /nginx-custom.conf /etc/nginx/conf.d/default.conf
-
-
-ENTRYPOINT ["nginx","-g","daemon off;"]
+##### Stage 2, use the compiled app, ready for production with Nginx
+#FROM nginx
+#
+## Copy the angular build from Stage 1
+#COPY --from=build /app/dist/out/ /usr/share/nginx/html
+#
+## Copy our custom nginx config
+#COPY /nginx-custom.conf /etc/nginx/conf.d/default.conf
+#
+#
+#ENTRYPOINT ["nginx","-g","daemon off;"]
