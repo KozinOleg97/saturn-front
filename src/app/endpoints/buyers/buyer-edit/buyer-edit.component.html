@@ -1,0 +1,105 @@
+<div class="card col-md-6 offset-md-3 offset-md-3">
+  <div class="row">
+    <h2 class="text-center"> Изменить данные покупателя </h2>
+    <hr/>
+    <div class="card-body">
+
+      <form (ngSubmit)="onSubmit()"
+            (change)="onChange()">
+
+        <div>
+
+          <p>
+            <mat-form-field>
+              <mat-label> Название</mat-label>
+              <input matInput type="text" class="form-control" [(ngModel)]="buyer.name"
+                     name="name">
+            </mat-form-field>
+
+
+            <mat-form-field>
+              <mat-label> Фамилия</mat-label>
+              <input matInput type="text" class="form-control" [(ngModel)]="buyer.surname"
+                     name="surname">
+            </mat-form-field>
+
+
+            <mat-form-field>
+              <mat-label> Отчество </mat-label>
+              <input matInput type="text" class="form-control"  [(ngModel)]="buyer.acronym"
+                     name="acronym">
+            </mat-form-field>
+          </p>
+
+          <p>
+            <mat-form-field>
+              <mat-label> Телефон </mat-label>
+              <input matInput type="tel" class="form-control"  [(ngModel)]="buyer.phone"
+                     name="phone">
+            </mat-form-field>
+          </p>
+
+          <p>
+            <mat-form-field>
+              <mat-label> Площадь до </mat-label>
+              <input matInput type="text" class="form-control"  [(ngModel)]="buyer.apartment_area_max"
+                     name="apartment_area_max">
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label> Площадь от </mat-label>
+              <input matInput type="text" class="form-control" [(ngModel)]="buyer.apartment_area_min"
+                     name="apartment_area_min">
+            </mat-form-field>
+
+
+
+
+
+            <mat-form-field>
+              <mat-label> Желаемая цена </mat-label>
+              <input matInput type="text" class="form-control"  name="price_max" [(ngModel)]="buyer.price_max">
+            </mat-form-field>
+
+
+
+            <mat-form-field appearance="fill">
+              <mat-label>Укажите район</mat-label>
+              <mat-select name="district" [(value)]="buyer.district_id" [(ngModel)]="buyer.district_id" >
+                <mat-option *ngFor="let district of districtList" [value]="district.id">
+                  {{district?.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </p>
+
+
+          <div>
+            <mat-checkbox class="example-margin"  name="exclude_last_first_floor" [(ngModel)]="buyer.exclude_last_first_floor">Без крайних этажей </mat-checkbox>
+          </div>
+
+          <br>
+          <div class="demo-button-container">
+            <button mat-raised-button [disabled]="!allowSubmit" type="submit" class="btn btn-success">
+              Применить изменения
+            </button>
+          </div>
+
+          <br>
+          <div class="demo-button-container">
+            <button mat-raised-button type="button" class="btn btn-delete" (click)="delete()">
+              Удалить
+            </button>
+          </div>
+        </div>
+
+
+      </form>
+
+
+    </div>
+  </div>
+</div>
+
+
+

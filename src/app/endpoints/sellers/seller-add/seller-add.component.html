@@ -1,0 +1,92 @@
+<div class="card col-md-6 offset-md-3 offset-md-3">
+  <div class="row">
+    <h2 class="text-center"> Добавить нового продавца </h2>
+    <hr/>
+    <div class="card-body">
+
+      <form (ngSubmit)="onSubmit()"
+            (change)="onChange()">
+
+        <div>
+          <p>
+          <mat-form-field>
+            <mat-label> Название</mat-label>
+            <input matInput type="text" class="form-control" id="name" [(ngModel)]="seller.name"
+                   name="name">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label> Фамилия</mat-label>
+            <input matInput type="text" class="form-control" id="surname" [(ngModel)]="seller.surname"
+                   name="gps_latitude">
+          </mat-form-field>
+
+
+          <mat-form-field>
+            <mat-label> Отчество </mat-label>
+            <input matInput type="text" class="form-control" id="acronym" [(ngModel)]="seller.acronym"
+                   name="gps_longitude">
+          </mat-form-field>
+          </p>
+
+          <p>
+          <mat-form-field>
+            <mat-label> Телефон </mat-label>
+            <input matInput type="text" class="form-control" id="phone" [(ngModel)]="seller.phone"
+                   name="gps_longitude">
+          </mat-form-field>
+          </p>
+
+          <p>
+          <mat-form-field>
+            <mat-label> Площадь </mat-label>
+            <input matInput type="text" class="form-control" id="apartment_are" [(ngModel)]="seller.apartment_area"
+                   name="gps_longitude">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label> Этаж квартиры </mat-label>
+            <input matInput type="text" class="form-control" id="apartment_floor" [(ngModel)]="seller.apartment_floor"
+                   name="gps_longitude">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label> Этажей в здании </mat-label>
+            <input matInput type="text" class="form-control" id="floors_number" [(ngModel)]="seller.floors_number"
+                   name="gps_longitude">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label> Цена </mat-label>
+            <input matInput type="text" class="form-control" id="price" [(ngModel)]="seller.price"
+                   name="gps_longitude">
+          </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Укажите район</mat-label>
+              <mat-select name="district" [(value)]="seller.district_id" [(ngModel)]="seller.district_id" >
+                <mat-option *ngFor="let district of districtList" [value]="district.id">
+                  {{district?.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+          </p>
+          <br>
+          <div class="demo-button-container">
+            <button mat-raised-button [disabled]="!allowSubmit" type="submit" class="btn btn-success">
+              Создать
+            </button>
+          </div>
+        </div>
+
+
+      </form>
+
+
+    </div>
+  </div>
+</div>
+
+
+

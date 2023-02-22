@@ -1,0 +1,56 @@
+<div class="card col-md-6 offset-md-3 offset-md-3">
+  <div class="row">
+    <h3 class="text-center"> Редактировать район </h3>
+    <hr/>
+    <div class="card-body">
+
+      <form (ngSubmit)="onSubmit()"
+            (change)="onChange()">
+
+        <p>
+        <mat-form-field>
+          <mat-label> Название</mat-label>
+          <input matInput type="text" class="form-control" id="name" [(ngModel)]="district.name"
+                 name="name">
+        </mat-form-field>
+        </p>
+
+        <p>
+        <mat-form-field>
+          <mat-label> Широта</mat-label>
+          <input matInput type="text" class="form-control" id="gps_latitude" [(ngModel)]="district.gps_latitude"
+                 name="gps_latitude">
+        </mat-form-field>
+
+
+        <mat-form-field>
+          <mat-label> Долгота</mat-label>
+          <input matInput type="text" class="form-control" id="gps_longitude" [(ngModel)]="district.gps_longitude"
+                 name="gps_longitude">
+        </mat-form-field>
+        </p>
+
+        <br>
+        <div class="demo-button-container">
+          <button mat-raised-button [disabled]="!allowSubmit" type="submit" class="btn btn-success">
+            Применить изменения
+          </button>
+        </div>
+
+        <br>
+        <div class="demo-button-container">
+          <button mat-raised-button type="button" class="btn btn-delete" (click)="delete()">
+            Удалить
+          </button>
+        </div>
+
+
+      </form>
+
+
+    </div>
+  </div>
+</div>
+
+
+

@@ -1,0 +1,80 @@
+<div class="row">
+  <h2>Список возиожных сделок</h2>
+</div>
+
+
+<mat-form-field appearance="outline">
+  <mat-label>Поиск</mat-label>
+  <input matInput (keyup)="applyFilter($event)" #input>
+</mat-form-field>
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort>
+
+    <ng-container matColumnDef="buyer_name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Имя покупателя</th>
+      <td mat-cell *matCellDef="let row"> {{row.buyer_name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="buyer_surname">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Фамилия покупателя</th>
+      <td mat-cell *matCellDef="let row"> {{row.buyer_surname}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="buyer_acronym">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Отчество покупателя</th>
+      <td mat-cell *matCellDef="let row"> {{row.buyer_acronym}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="buyer_phone">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Телефон покупателя</th>
+      <td mat-cell *matCellDef="let row"> {{row.buyer_phone}} </td>
+    </ng-container>
+
+
+    <!--    -->
+
+    <ng-container matColumnDef="seller_name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Имя продавца</th>
+      <td mat-cell *matCellDef="let row"> {{row.seller_name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="seller_surname">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Фамилия продавца</th>
+      <td mat-cell *matCellDef="let row"> {{row.seller_surname}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="seller_acronym">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Отчество продавца</th>
+      <td mat-cell *matCellDef="let row"> {{row.seller_acronym}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="seller_phone">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Телефон продавца</th>
+      <td mat-cell *matCellDef="let row"> {{row.seller_phone}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="district_name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Телефон продавца</th>
+      <td mat-cell *matCellDef="let row"> {{row.district_name}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="profit">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Прибыль</th>
+      <td mat-cell *matCellDef="let row"> {{row.profit}} </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+    </tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20, 50]" aria-label="Select page of users"></mat-paginator>
+</div>

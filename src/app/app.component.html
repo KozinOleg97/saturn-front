@@ -1,0 +1,44 @@
+<div style="height: 80vh;">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Агенство</span>
+      <span class="menu-spacer"></span>
+      <div fxShow="true" fxHide.lt-md>
+
+        <a href="#" mat-button routerLink="district-list">Районы</a>
+        <a href="#" mat-button routerLink="district-add">Добавить район</a>
+        <a href="#" mat-button routerLink="seller-list">Список продавцов</a>
+        <a href="#" mat-button routerLink="seller-add">Добавить продавца</a>
+        <a href="#" mat-button routerLink="buyer-list">Список покупателей</a>
+        <a href="#" mat-button routerLink="buyer-add">Добавить покупателей</a>
+        <a href="#" mat-button routerLink="deal-list">Отчёт</a>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-sidenav-container fxFlexFill>
+    <mat-sidenav #sidenav>
+      <mat-nav-list>
+
+        <a href="#" mat-list-item routerLink="district-list">Районы</a>
+        <a href="#" mat-list-item routerLink="district-add">Добавить район</a>
+        <a href="#" mat-list-item routerLink="seller-list">Список продавцов</a>
+        <a href="#" mat-list-item routerLink="seller-add">Добавить продавца</a>
+        <a href="#" mat-list-item routerLink="buyer-list">Список покупателей</a>
+        <a href="#" mat-list-item routerLink="buyer-add">Добавить покупателей</a>
+        <a href="#" mat-list-item routerLink="deal-list">Отчёт</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content fxFlexFill>
+
+      <!--      Main content-->
+      <div class="container">
+        <router-outlet></router-outlet>
+      </div>
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
